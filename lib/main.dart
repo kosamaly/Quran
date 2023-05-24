@@ -25,13 +25,3 @@ class _QuranState extends State<Quran> {
     );
   }
 }
-
-// class Quran extends StatefulWidget {
-//   const Quran({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       initialRoute: Jozz.id,
-//     );
-//   }

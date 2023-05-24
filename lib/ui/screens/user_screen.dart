@@ -1,3 +1,5 @@
+import 'package:flash/data/local/dummy_data.dart';
+import 'package:flash/ui/widgets/jozz_widget.dart';
 import 'package:flutter/material.dart';
 
 class UserScreen extends StatefulWidget {
@@ -9,7 +11,6 @@ class UserScreen extends StatefulWidget {
 }
 
 class UserScreenState extends State<UserScreen> {
-  List isSelectedList = List.generate(30, (index) => false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +18,7 @@ class UserScreenState extends State<UserScreen> {
       appBar: AppBar(
         backgroundColor: Colors.cyan[300],
         title: const Text(
-          'الختمه',
+          'الختمة',
           style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
         ),
       ),
@@ -48,47 +49,11 @@ class UserScreenState extends State<UserScreen> {
                 crossAxisCount: 4,
 
                 // Number of columns
-                children: List.generate(30, (index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isSelectedList[index] = !isSelectedList[
-                            index]; // Convert clicked number to red
-                      });
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        image: const DecorationImage(
-                          image: AssetImage(
-                            'images/4.png',
-                          ),
-                          fit: BoxFit.cover,
-                          repeat: ImageRepeat.repeat,
-                        ),
-                        border: Border.all(
-                            color: isSelectedList[index]
-                                ? Colors.greenAccent
-                                : Colors.white,
-                            width: 5),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(80)),
-                        color:
-                            isSelectedList[index] ? Colors.green : Colors.white,
-                      ),
-                      child: Text(
-                        '${index + 1}',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: isSelectedList[index]
-                              ? Colors.green
-                              : Colors.black54,
-                        ),
-                      ),
-                    ),
-                  );
-                }),
+                children: quran
+                    .map(
+                      (element) => JozzWidget(jozz: element),
+                    )
+                    .toList(),
               ),
             ),
           ),
