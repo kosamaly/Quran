@@ -1,14 +1,16 @@
+import 'package:flash/logic/models/jozz_model.dart';
 import 'package:flutter/cupertino.dart';
 
-class Jozz extends StatefulWidget {
-  Jozz({Key? key}) : super(key: key);
-  int jozzNum = 0;
-  String jozzName = "";
+class JozzWidget extends StatefulWidget {
+  const JozzWidget({Key? key, required this.jozz}) : super(key: key);
+
+  final JozzModel jozz;
+
   @override
-  State<Jozz> createState() => _JozzState();
+  State<JozzWidget> createState() => _JozzWidgetState();
 }
 
-class _JozzState extends State<Jozz> {
+class _JozzWidgetState extends State<JozzWidget> {
   @override
   Widget build(BuildContext context) {
     return Container();
